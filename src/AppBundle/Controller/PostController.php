@@ -49,10 +49,9 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $posts = $em->getRepository('AppBundle:Post')->findByCategoria($categoria);
-        $categorias = $em->getRepository('AppBundle:Categoria')->findAll();
 
         return array(
-            'posts' => $posts,  'categorias' => $categorias,
+            'posts' => $posts,
         );
     }
 
