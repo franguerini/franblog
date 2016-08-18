@@ -50,4 +50,22 @@ class CategoriaController extends Controller
             'post' => $categoria,
         ));
     }
+
+    /**
+     *
+     *
+     * @Route("/", name="categorias_list")
+     * @Method("GET")
+     * @Template()
+     */
+    public function categoriaListAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categorias = $em->getRepository('AppBundle:Categoria')->findAll();
+
+        return array(
+            'categorias' => $categorias,
+        );
+    }
 }
