@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Autor list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for autor in autors %}
+            <tr>
+                <td><a href="{{ path('admin_autor_show', { 'id': autor.id }) }}">{{ autor.id }}</a></td>
+                <td>{{ autor.nombre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_autor_show', { 'id': autor.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_autor_edit', { 'id': autor.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_autor_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

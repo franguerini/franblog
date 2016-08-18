@@ -1,0 +1,25 @@
+{% extends 'base_front.html.twig' %}
+
+{% block body %}
+
+    <h1>Post list</h1>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <h2>{{ post.titulo }}</h2>
+                <h3>{{ post.subtitulo }}</h3>
+                <td>{{ post.contenido }}</td>
+                <div class="row">
+                    <div class="col-xs-6 col-md-3">
+                        <td><br>{{ post.autor }}</td>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <td>{% if post.fecha %}<br>{{ post.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    </div>
+                </div>
+                <h2><br></h2>
+                <hr>
+            </tr>
+        {% endfor %}
+        </tbody>
+{% endblock %}
