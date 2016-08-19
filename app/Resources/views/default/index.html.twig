@@ -22,14 +22,14 @@
                 <h3>Categorias</h3>
                 {% for cate in categorias %}
                     <div class="checkbox">
-                        <label><input id="categoria" name="category[]" type="checkbox" checked="true" value="{{ cate.id }}">{{ cate.nombre }}</label>
+                        <label><input name="category[]" type="checkbox" value="{{ cate.id }}" {% if cate.id in filtroCategorias %} checked="true" {% endif %}> {{ cate.nombre }}</label>
                     </div>
                 {% endfor %}
                 <hr>
                 <h3>Autores</h3>
                 {% for autor in autores %}
                     <div class="checkbox">
-                        <label><input id="autor" name="{{ autor.nombre }}" type="checkbox" checked="true" value="true" >{{ autor.nombre }}</label>
+                        <label><input name="autores[]" type="checkbox" value="{{ autor.id }}" {% if autor.id in filtroAutor %} checked="true" {% endif %} >{{ autor.nombre }}</label>
                     </div>
                 {% endfor %}
                     <input type="submit" value="submit">
